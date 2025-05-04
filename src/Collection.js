@@ -2,6 +2,7 @@ const express = require("express")
 const City = require("./Models/City")
 const Service = require("./Models/Service")
 const Location = require("./Models/Location")
+const Slot = require("./Models/Slot")
 
 const router = express.Router()
 
@@ -25,5 +26,12 @@ router.post("/locations",(req,res)=>{
     newLocation.save().then((document)=>console.log(document)).catch((error)=>console.log(error))
     res.status(201).json({message:"document created in the locations collection"})
 
+})
+
+
+router.post("/slots",(req,res)=>{
+   const newSlot = new Slot(req.body)
+   newSlot.save().then((document)=>console.log(document)).catch((error)=>console.log(error))
+   res.status(201).json({message:"document created in slots collection"})
 })
 module.exports = router
