@@ -42,21 +42,12 @@ const AppointmentForm = () => {
    
 },[displayedCityId])
 
-// fetch corresponding slots for a particular city and particular service
-// useEffect(()=>{
-//   const fetchSlotsPerCityPerService = async()=> {
-//     await axios.get("http://localhost:3001/api/slots",{
-//       params:{slotCityId:displayedCityId,slotServiceId:selectedServiceId,date,duration}
-//     }).then(()=>console.log("fetching slots")).catch((error)=>console.log(error))
-//   }
-//   fetchSlotsPerCityPerService()
-// },[selectedServiceId])
 
 const submitAppointmentForm = async (e)=>{
   e.preventDefault()
   await axios.get("http://localhost:3001/api/slots",{
           params:{slotCityId:displayedCityId,slotServiceId:selectedServiceId,date,duration}
-        }).then(()=>console.log("fetching slots")).catch((error)=>console.log(error))
+        }).then((res)=>console.log(res.data.slotsResult)).catch((error)=>console.log(error))
       }
 
 

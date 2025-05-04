@@ -30,4 +30,4 @@ app.listen(port,()=>{console.log(`appp listening on port ${port}`)})
 // endpoint to create collections
 // app.use("/collections",require("./src/Collection"))
 
-app.use("/api",[require("./src/api/City"),require("./src/api/Service")])
+app.use("/api",[require("./src/api/City"),require("./src/api/Service"),require("./src/api/Slot")])
